@@ -1,24 +1,24 @@
 
-function horas(){
+function horas() {
 
-let h1 = document.getElementsByTagName("h1")[0]
+    let h1 = document.getElementsByTagName("h1")[0]
 
-let here = new Date()
+    let here = new Date()
 
-let horario = here.getHours() + ":" + here.getMinutes() + ":" + here.getSeconds();
+    let horario = corrigir(here.getHours()) + ":" + corrigir(here.getMinutes()) + ":" + corrigir(here.getSeconds());
 
-h1.innerHTML = horario
-if(here.getSeconds() < 10){
-    let horario = here.getHours() + ":" + here.getMinutes() + ":" + "0" + here.getSeconds();
     h1.innerHTML = horario
 }
-else if(here.getMinutes() < 10){
-    let horario = here.getHours() + ":" + "0" + here.getMinutes() + ":" + "0" + here.getSeconds();
 
+
+function corrigir(numero) {
+    if (numero < 10) {
+        numero = "0" + numero
+
+    }
+    return numero
 }
 
 
-}
-
-
+horas()
 setInterval(horas, 1000)
